@@ -2,17 +2,17 @@ package bank.domain;
 
 import java.util.Date;
 
-public class AccountEntry {
+public class AccountRecord {
 	private Date date;
 	private double amount;
 	private String description;
 	private String fromAccountNumber;
 	private String fromPersonName;
 	
-	public AccountEntry() {
+	public AccountRecord() {
 	}
 
-	public AccountEntry(Date date, double amount, String description, String fromAccountNumber, String fromPersonName) {
+	public AccountRecord(Date date, double amount, String description, String fromAccountNumber, String fromPersonName) {
 		super();
 		this.date = date;
 		this.amount = amount;

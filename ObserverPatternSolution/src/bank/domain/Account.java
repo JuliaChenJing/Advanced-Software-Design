@@ -7,7 +7,7 @@ import bank.service.Subject;
 //Account is a publisher,its superclass Subject has a list of observer
 public class Account extends Subject {
 	long accountnumber;
-	Collection<AccountEntry> entryList = new ArrayList<AccountEntry>();
+	Collection<AccountRecord> recordList = new ArrayList<AccountRecord>();
 	Customer customer;
 
 	
@@ -22,35 +22,35 @@ public class Account extends Subject {
 	}
 	public double getBalance() {
 		double balance=0;
-		for (AccountEntry entry : entryList) {
-			balance+=entry.getAmount();
+		for (AccountRecord record : recordList) {
+			balance+=record.getAmount();
 		}
 		return balance;
 	}
 	public void deposit(double amount){
-		AccountEntry entry = new AccountEntry(new Date(), amount, "deposit", "", "");
-		entryList.add(entry);
+		AccountRecord record = new AccountRecord(new Date(), amount, "deposit", "", "");
+		recordList.add(record);
 		notify(this);//deposit needs to notify observers
 
 	}
 	public void withdraw(double amount){
-		AccountEntry entry = new AccountEntry(new Date(), -amount, "withdraw", "", "");
-		entryList.add(entry);
+		AccountRecord record = new AccountRecord(new Date(), -amount, "withdraw", "", "");
+		recordList.add(record);
 		notify(this);//withdraw needs to notify observers
 
 	}
 
-	private void addEntry(AccountEntry entry){
-		entryList.add(entry);
+	private void addRecord(AccountRecord record){
+		recordList.add(record);
 	}
 
 	public void transferFunds(Account toAccount, double amount, String description){
-		AccountEntry fromEntry = new AccountEntry(new Date(), -amount, description, ""+toAccount.getAccountnumber(), toAccount.getCustomer().getName());
-		AccountEntry toEntry = new AccountEntry(new Date(), amount, description, ""+toAccount.getAccountnumber(), toAccount.getCustomer().getName());
-		entryList.add(fromEntry);	
-		toAccount.addEntry(toEntry);
-		notify(this);//transfer needs to notify observers
-		notify(toAccount);
+		AccountRecord fromrecord = new AccountRecord(new Date(), -amount, description, ""+toAccount.getAccountnumber(), toAccount.getCustomer().getName());
+		AccountRecord toRecord = new AccountRecord(new Date(), amount, description, ""+toAccount.getAccountnumber(), toAccount.getCustomer().getName());
+		recordList.add(fromrecord);	
+		toAccount.addRecord(toRecord);
+		notify(this);//transfer needs to notify the observer where the money is taken
+		notify(toAccount);//transfer needs to notify the observer where the money is given
 
 	}
 	
@@ -60,8 +60,8 @@ public class Account extends Subject {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	public Collection<AccountEntry> getEntryList() {
-		return entryList;
+	public Collection<AccountRecord> getRecordList() {
+		return recordList;
 	}
 
 }

@@ -2,14 +2,8 @@ package bank;
 
 import java.util.Collection;
 
-import sms.SMSSender;
-
-import email.EmailSender;
-
-import logging.Logger;
-
 import bank.domain.Account;
-import bank.domain.AccountEntry;
+import bank.domain.AccountRecord;
 import bank.domain.Customer;
 import bank.service.AccountService;
 import bank.service.IAccountService;
@@ -31,10 +25,15 @@ public class Application {
 		
 	
 		accountService.deposit(222222, 300);
+		
 		//transfer 100 from Julia to Bimal
 		accountService.transferFunds(111111, 222222, 100, "payment of invoice 100");
 		
-		
+		showAllStatements(accountService);
+	
+	}
+
+	private static void showAllStatements(IAccountService accountService) {
 		Collection<Account> accountlist = accountService.getAllAccounts();
 		Customer customer = null;
 		for (Account account : accountlist) {
@@ -44,15 +43,16 @@ public class Application {
 			System.out.println("-Date-------------------------"
 							+ "-Description------------------"
 							+ "-Amount-------------");
-			for (AccountEntry entry : account.getEntryList()) {
-				System.out.printf("%30s%30s%20.2f\n", entry.getDate()
-						.toString(), entry.getDescription(), entry.getAmount());
+			for (AccountRecord record : account.getRecordList()) {
+				System.out.printf("%30s%30s%20.2f\n", record.getDate()
+						.toString(), record.getDescription(), record.getAmount());
 			}
 			System.out.println("----------------------------------------"
 					+ "----------------------------------------");
 			System.out.printf("%30s%30s%20.2f\n\n", "", "Current Balance:",
 					account.getBalance());
 		}
+		
 	}
 
 }
