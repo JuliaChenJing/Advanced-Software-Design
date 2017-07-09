@@ -4,8 +4,11 @@ import bank.domain.Account;
 
 public interface ISubject {
 
-	public abstract void addObserver(IObserver observer);
+	public abstract void addObserver(IObserver addObserver);
 
-	public abstract void donotify(Account account);
+	//https://www.youtube.com/watch?v=wiQdrH2YpT4&t=1035s
+	//public abstract void delete Observer(IObserver deleteObserver);
+	
+	public abstract void notify(Account account);
 
 }

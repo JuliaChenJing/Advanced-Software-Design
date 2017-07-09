@@ -35,7 +35,7 @@ public class AccountService implements IAccountService {
 		account.addObserver(logger);
 		account.addObserver(emailsender);
 		account.addObserver(smssender);
-		account.donotify(account);
+		account.notify(account);
 		
 		accountDAO.saveAccount(account);
 		return account;

@@ -31,6 +31,7 @@ public class Application {
 		
 	
 		accountService.deposit(222222, 300);
+		//transfer 100 from Julia to Bimal
 		accountService.transferFunds(111111, 222222, 100, "payment of invoice 100");
 		
 		

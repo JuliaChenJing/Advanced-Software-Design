@@ -4,7 +4,7 @@ import java.util.*;
 
 import bank.service.Subject;
 
-
+//Account is a publisher,its superclass Subject has a list of observer
 public class Account extends Subject {
 	long accountnumber;
 	Collection<AccountEntry> entryList = new ArrayList<AccountEntry>();
@@ -30,13 +30,13 @@ public class Account extends Subject {
 	public void deposit(double amount){
 		AccountEntry entry = new AccountEntry(new Date(), amount, "deposit", "", "");
 		entryList.add(entry);
-		donotify(this);
+		notify(this);//deposit needs to notify observers
 
 	}
 	public void withdraw(double amount){
 		AccountEntry entry = new AccountEntry(new Date(), -amount, "withdraw", "", "");
 		entryList.add(entry);
-		donotify(this);
+		notify(this);//withdraw needs to notify observers
 
 	}
 
@@ -49,8 +49,8 @@ public class Account extends Subject {
 		AccountEntry toEntry = new AccountEntry(new Date(), amount, description, ""+toAccount.getAccountnumber(), toAccount.getCustomer().getName());
 		entryList.add(fromEntry);	
 		toAccount.addEntry(toEntry);
-		donotify(this);
-		donotify(toAccount);
+		notify(this);//transfer needs to notify observers
+		notify(toAccount);
 
 	}
 	
