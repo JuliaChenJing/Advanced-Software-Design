@@ -6,8 +6,8 @@ import bank.dao.AccountDAO;
 import bank.dao.IAccountDAO;
 import bank.domain.Account;
 import bank.domain.Customer;
-import bank.domain.InterestStrategyHigh;
-import bank.domain.InterestStrategyLow;
+import bank.domain.SavingsAccountInterestStrategy;
+import bank.domain.CheckingsAccountInterestStrategy;
 
 
 public class AccountService implements IAccountService {
@@ -20,11 +20,13 @@ public class AccountService implements IAccountService {
 
 	public Account createAccount(String type, long accountNumber, String customerName) {
 		Account account = new Account(accountNumber);
+		
+		//set interest strategy
 		if (type.equals("checking")){		   
-		   account.setInterestStrategy(new InterestStrategyLow());
+		   account.setInterestStrategy(new CheckingsAccountInterestStrategy());
 		}
 		else {
-		   account.setInterestStrategy(new InterestStrategyHigh());
+		   account.setInterestStrategy(new SavingsAccountInterestStrategy());
 		}
 		account.setType(type);
 		
@@ -65,7 +67,8 @@ public class AccountService implements IAccountService {
 		accountDAO.updateAccount(toAccount);
 	}
 	
-	public void addinterest(){
+	//add interest to all users
+	public void addinterestToAllUsers(){
 		Collection<Account> accounts = getAllAccounts();
 		for (Account account: accounts){
 			account.addInterest();

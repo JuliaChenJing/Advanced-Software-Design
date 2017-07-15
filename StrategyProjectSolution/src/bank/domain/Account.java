@@ -49,7 +49,8 @@ public class Account {
 	}
 
 	public void addInterest(){
-		System.out.println("AddInterest on Account of type "+type);
+		System.out.println("\nAccount Holder: " + customer.getName());
+		System.out.println("Add Interest on Account of type "+type);
 		System.out.println("Old balance = "+getBalance());
 		double interest =interestStrategy.computeInterest(getBalance());
 		AccountEntry entry = new AccountEntry(new Date(), interest, "interest", "", "");

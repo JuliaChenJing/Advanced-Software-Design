@@ -10,5 +10,5 @@ public interface IAccountService {
     void deposit (long accountNumber, double amount);
     void withdraw (long accountNumber, double amount);
     void transferFunds(long fromAccountNumber, long toAccountNumber, double amount, String description);
-    void addinterest();
+    void addinterestToAllUsers();
 }

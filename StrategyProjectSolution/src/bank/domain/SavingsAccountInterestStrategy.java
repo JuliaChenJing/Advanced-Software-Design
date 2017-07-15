@@ -1,6 +1,6 @@
 package bank.domain;
 
-public class InterestStrategyHigh implements IInterestStrategy{
+public class SavingsAccountInterestStrategy implements IInterestStrategy{
 
 	public double computeInterest(double balance) {
 		if (balance > 5000){
