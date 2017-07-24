@@ -1,8 +1,8 @@
 
-public abstract class CatalogItem {
+public abstract class CatalogComponent {
 	protected String title;
 
-	public CatalogItem(String title) {
+	public CatalogComponent(String title) {
 		this.title = title;
 	}
 

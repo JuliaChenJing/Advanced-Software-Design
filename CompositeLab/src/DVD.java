@@ -1,6 +1,5 @@
 
-public class DVD extends CatalogItem{
-
+public class DVD extends CatalogComponent{
 
 	public DVD(String title) {
 		super(title);

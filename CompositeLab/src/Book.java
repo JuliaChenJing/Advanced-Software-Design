@@ -1,5 +1,5 @@
 
-public class Book extends CatalogItem{
+public class Book extends CatalogComponent{
 	private String isbn;
 
 	public Book(String isbn, String title) {
