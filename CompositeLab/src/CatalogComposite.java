@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class CategoryComposite extends CatalogComponent{
+public class CatalogComposite extends CatalogComponent{
 	
     private Collection<CatalogComponent> list = new ArrayList<CatalogComponent>();
 
-	public CategoryComposite(String title) {
+	public CatalogComposite(String title) {
 		super(title);
 	}
 
@@ -13,7 +13,7 @@ public class CategoryComposite extends CatalogComponent{
     }
     
 	public void print() {
-		System.out.println( "Category name=" + title );
+		System.out.println( "\n------------Category name : " + title +"-----------\n");
 		for (CatalogComponent item : list){
 			item.print();
 		}
