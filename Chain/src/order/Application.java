@@ -6,8 +6,8 @@ public class Application {
 		String orderNumber = "111";
 		Double totalAmount = 90.0;
 		Boolean isInternational = false;
-		String name = "Julia";
-		Order order = new Order(orderNumber, totalAmount, isInternational, name);
+		String customerName = "Julia";
+		Order order = new Order(orderNumber, totalAmount, isInternational, customerName);
 		
 		OrderReceiver orderReceiver = new OrderReceiver();
 		orderReceiver.receiveOrder(order);
