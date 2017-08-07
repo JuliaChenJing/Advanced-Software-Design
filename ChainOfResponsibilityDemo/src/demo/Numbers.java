@@ -1,3 +1,4 @@
+package demo;
 // This object will contain 2 numbers and a
 // calculation to perform in the form of a String
 

@@ -13,6 +13,7 @@ public class OrderReceiver {
 		mostFavoredCustomerOrderHandler.setNextLeader(largeOrderHandler);
 		largeOrderHandler.setNextLeader(internationalOrderHandler);
 		internationalOrderHandler.setNextLeader(domesticOrderHandler);
+		mostFavoredCustomerOrderHandler.addMostFavoredCustomer("Julia");
 		
 		mostFavoredCustomerOrderHandler.handleOrder(order);
     }

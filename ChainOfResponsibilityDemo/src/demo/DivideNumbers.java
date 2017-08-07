@@ -1,3 +1,4 @@
+package demo;
 public class DivideNumbers implements Chain{
 
 	private  Chain nextInChain;
