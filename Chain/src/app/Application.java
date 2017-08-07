@@ -1,4 +1,7 @@
-package order;
+package app;
+
+import order.Order;
+import order.OrderReceiver;
 
 public class Application {
 	

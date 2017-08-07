@@ -1,10 +1,10 @@
 package order;
 
 public abstract class OrderHandler {
-	public abstract void handleOrder(Order order);
 	protected OrderHandler nextHandler;
+	public abstract void handleOrder(Order order);
 	
-	public void setNextLeader(OrderHandler nextHandler) {
+	public void setNextHandler(OrderHandler nextHandler) {
         this.nextHandler = nextHandler;
     }
 

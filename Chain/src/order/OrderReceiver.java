@@ -10,9 +10,9 @@ public class OrderReceiver {
 		InternationalOrderHandler internationalOrderHandler = new InternationalOrderHandler();
 		DomesticOrderHandler domesticOrderHandler = new DomesticOrderHandler();
 		
-		mostFavoredCustomerOrderHandler.setNextLeader(largeOrderHandler);
-		largeOrderHandler.setNextLeader(internationalOrderHandler);
-		internationalOrderHandler.setNextLeader(domesticOrderHandler);
+		mostFavoredCustomerOrderHandler.setNextHandler(largeOrderHandler);
+		largeOrderHandler.setNextHandler(internationalOrderHandler);
+		internationalOrderHandler.setNextHandler(domesticOrderHandler);
 		mostFavoredCustomerOrderHandler.addMostFavoredCustomer("Julia");
 		
 		mostFavoredCustomerOrderHandler.handleOrder(order);
