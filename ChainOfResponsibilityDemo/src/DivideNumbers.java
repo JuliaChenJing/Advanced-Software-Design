@@ -12,7 +12,7 @@ public class DivideNumbers implements Chain{
 	@Override
 	public void calculate(Numbers request) {
 		
-		if(request.getCalcWanted() == "div"){
+		if(request.getCalcWanted() == "divide"){
 			
 			System.out.print(request.getNumber1() + " / " + request.getNumber2() + " = "+
 					(request.getNumber1()/request.getNumber2()));

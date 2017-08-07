@@ -19,7 +19,7 @@ public class Application {
 		// Define the data in the Numbers Object
 		// and send it to the first Object in the chain
 		
-		Numbers request = new Numbers(4,2,"add");
+		Numbers request = new Numbers(4,2,"divide");
 		
 		chainCalc1.calculate(request);
 		
