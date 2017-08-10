@@ -3,8 +3,8 @@ package bank.service;
 import java.lang.reflect.Proxy;
 import java.util.Collection;
 
-import proxies.Logger;
-import proxies.Timer;
+import proxies.LoggerProxy;
+import proxies.TimerProxy;
 
 import bank.dao.AccountDAO;
 import bank.dao.IAccountDAO;
@@ -19,9 +19,9 @@ public class AccountService implements IAccountService {
 	public AccountService(){
 		IAccountDAO theaccountDAO=new AccountDAO();
 		ClassLoader cl = IAccountDAO.class.getClassLoader();
-		IAccountDAO theloggeraccountDAO = (IAccountDAO) Proxy.newProxyInstance(cl, new Class[] { IAccountDAO.class }, new Logger(theaccountDAO));
+		IAccountDAO theloggeraccountDAO = (IAccountDAO) Proxy.newProxyInstance(cl, new Class[] { IAccountDAO.class }, new LoggerProxy(theaccountDAO));
 
-		accountDAO = (IAccountDAO) Proxy.newProxyInstance(cl, new Class[] { IAccountDAO.class }, new Timer(theloggeraccountDAO));
+		accountDAO = (IAccountDAO) Proxy.newProxyInstance(cl, new Class[] { IAccountDAO.class }, new TimerProxy(theloggeraccountDAO));
 
 	}
 

@@ -2,9 +2,7 @@ package bank;
 
 import java.lang.reflect.Proxy;
 import java.util.Collection;
-
-import proxies.Logger;
-import proxies.Timer;
+import proxies.TimerProxy;
 
 
 import bank.domain.Account;
@@ -17,13 +15,14 @@ import bank.service.IAccountService;
 
 public class Application {
 	public static void main(String[] args) {
+		
 		IAccountService theAccountService = new AccountService();
 		ClassLoader cl = IAccountService.class.getClassLoader();
-		IAccountService accountService = (IAccountService) Proxy.newProxyInstance(cl, new Class[] { IAccountService.class }, new Timer(theAccountService));
+		IAccountService accountService = (IAccountService) Proxy.newProxyInstance(cl, new Class[] { IAccountService.class }, new TimerProxy(theAccountService));
 
 		// create 2 accounts;
-		accountService.createAccount(1263862, "Frank Brown");
-		accountService.createAccount(4253892, "John Doe");
+		accountService.createAccount(1263862, "Julia Chen");
+		accountService.createAccount(4253892, "Bimal Parajuli");
 		//use account 1;
 		accountService.deposit(1263862, 240);
 		accountService.deposit(1263862, 529);
@@ -31,13 +30,15 @@ public class Application {
 		//use account 2;
 		accountService.deposit(4253892, 12450);
 		accountService.transferFunds(4253892, 1263862, 100, "payment of invoice 10232");
-		// show balances
 		
+		
+		
+		// show balances
 		Collection<Account> accountlist = accountService.getAllAccounts();
 		Customer customer = null;
 		for (Account account : accountlist) {
 			customer = account.getCustomer();
-			System.out.println("Statement for Account: " + account.getAccountnumber());
+			System.out.println("\nStatement for Account: " + account.getAccountnumber());
 			System.out.println("Account Holder: " + customer.getName());
 			System.out.println("-Date-------------------------"
 							+ "-Description------------------"

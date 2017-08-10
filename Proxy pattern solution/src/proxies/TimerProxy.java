@@ -4,10 +4,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 
-public class Timer implements InvocationHandler {
+public class TimerProxy implements InvocationHandler {
 	private Object o;
 
-	public Timer(Object o) {
+	public TimerProxy(Object o) {
 		this.o = o;
 	}
 

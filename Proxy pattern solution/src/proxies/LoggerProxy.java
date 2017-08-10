@@ -6,10 +6,10 @@ import java.lang.reflect.Method;
 import bank.dao.IAccountDAO;
 
 
-public class Logger implements InvocationHandler {
+public class LoggerProxy implements InvocationHandler {
 	private IAccountDAO dao;
 
-	public Logger(IAccountDAO dao) {
+	public LoggerProxy(IAccountDAO dao) {
 		this.dao = dao;
 	}
 
