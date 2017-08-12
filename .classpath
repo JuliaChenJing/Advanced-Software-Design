@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="CeilingFanSolution/src"/>
+	<classpathentry kind="src" path="Chain/src"/>
+	<classpathentry kind="src" path="ChainOfResponsibilityDemo/src"/>
+	<classpathentry kind="src" path="ChainOfResponsibilitySolution/src"/>
+	<classpathentry kind="src" path="CommandProjectSolution/src"/>
+	<classpathentry kind="src" path="CompositeLab/src"/>
+	<classpathentry kind="src" path="CompositePatternHomework_After/src"/>
+	<classpathentry kind="src" path="CompositePatternHomework_Before/src"/>
+	<classpathentry kind="src" path="ObserverPatternHomework/src"/>
+	<classpathentry kind="src" path="ObserverPatternSolution/src"/>
+	<classpathentry kind="src" path="Proxy pattern solution/src"/>
+	<classpathentry kind="src" path="StrategyProjectSolution/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="CeilingFanSolution/bin"/>
+</classpath>
