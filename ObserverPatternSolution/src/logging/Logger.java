@@ -7,8 +7,7 @@ import bank.service.*;
 public class Logger implements IObserver {
 
 
-	
-	//whenever the account amount is changed, Log will be crated to register new balance
+	//whenever the account amount is changed, Log will be created to register new balance
 	public void update(Account account) {
 		String logstring = "Account "+account.getAccountnumber()+" is changed, new balance = "+account.getBalance();
 		log(logstring);

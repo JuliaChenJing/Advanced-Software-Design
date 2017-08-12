@@ -9,6 +9,8 @@ public class Application {
 		
 		market.addStock("ORC", 12.23);
 		market.addStock("MSC", 45.78);
+		
+		//will notify the stock buyer and stock viewer
 		market.update("ORC", 12.34);
 		market.update("MSC", 44.68);
 	}
