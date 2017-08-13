@@ -17,7 +17,7 @@ public class DepositCommand implements ICommand{
 		accountService.deposit(accountnumber, amount);
 		
 	}
-
+	//the opposite of execute
 	public void unExecute() {
 		accountService.withdraw(accountnumber, amount);		
 	}

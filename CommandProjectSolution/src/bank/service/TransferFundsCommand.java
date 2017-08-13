@@ -21,7 +21,7 @@ public class TransferFundsCommand implements ICommand{
 		accountService.transferFunds(fromaccountnumber, toaccountnumber, amount, description);
 		
 	}
-
+	//the opposite of execute
 	public void unExecute() {
 		accountService.transferFunds(toaccountnumber, fromaccountnumber, amount, "undo of action:"+description);
 		

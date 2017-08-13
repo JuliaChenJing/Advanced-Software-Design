@@ -12,12 +12,12 @@ public class HistoryList {
 		if (commandlist.size() > 0) {
 			ICommand commandObject = (ICommand) ((ArrayList) commandlist).get(commandlist.size() - 1);
 			((ArrayList) commandlist).remove(commandObject);//remove commandObject out of commandlist
-			commandObject.unExecute();
-			undolist.add(commandObject);
+			commandObject.unExecute();//unExecute last command
+			undolist.add(commandObject);//add the command to undolist
 		}
 	}
 
-	// this redo does not work correctly in all cases
+	
 	public void redo() {
 		if (undolist.size() > 0) {
 			ICommand commandObject = (ICommand) ((ArrayList) undolist).get(undolist.size() - 1);

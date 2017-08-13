@@ -47,6 +47,7 @@ public class Application {
 
 		// undo
 		historyList.undo();
+		historyList.redo();
 
 		// show balances
 		Collection<Account> accountlist = accountService.getAllAccounts();
