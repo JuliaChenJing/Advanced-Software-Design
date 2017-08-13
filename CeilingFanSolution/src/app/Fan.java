@@ -1,10 +1,11 @@
 package app;
 
-public class CeilingFan {
+public class Fan {
 	FanState state;
 	
 	public void setState(FanState state) {
 		this.state = state;
+		state.showState();
 	}
 
 	public void pullgreen() {

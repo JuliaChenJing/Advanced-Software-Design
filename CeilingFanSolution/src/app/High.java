@@ -1,11 +1,11 @@
 package app;
 
 public class High implements FanState{
-	CeilingFan fan;
+	Fan fan;
 	
-	public High(CeilingFan fan) {
+	public High(Fan fan) {
 		this.fan=fan;
-		System.out.println( "high speed" );
+		
 	}
 
 	public void pullgreen() {
@@ -16,5 +16,10 @@ public class High implements FanState{
 	public void pullred() {
 	      Medium newstate = new Medium(fan);
 	      fan.setState(newstate);
+	}
+
+	public void showState() {
+		System.out.println( "high speed" );
+		
 	}
 }

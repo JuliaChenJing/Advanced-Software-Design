@@ -2,6 +2,7 @@ package application;
 
 public class ATMMachine {
 	
+	//instance variable
 	ATMState hasCard;     
 	ATMState noCard;
 	ATMState hasCorrectPin;
@@ -14,17 +15,18 @@ public class ATMMachine {
 	
 	public ATMMachine(){
 		
+		
+		//initiatte the 4 states
 		hasCard = new HasCard(this);
 		noCard = new NoCard(this);
 		hasCorrectPin = new HasPin(this);
 		atmOutOfMoney = new NoCash(this);
 		
+		//set the initial state
 		atmState = noCard;
 		
 		if(cashInMachine < 0){
-			
 			atmState = atmOutOfMoney;
-			
 		}
 		
 	}
@@ -38,7 +40,6 @@ public class ATMMachine {
 	public void setCashInMachine(int newCashInMachine){
 		
 		cashInMachine = newCashInMachine;
-		
 	}
 	
 	public void insertCard() {

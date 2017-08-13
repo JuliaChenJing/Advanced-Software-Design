@@ -1,12 +1,13 @@
 package app;
 
 public class Off implements FanState{
-	CeilingFan fan;
+	Fan fan;
 	
-	public Off(CeilingFan fan, boolean start) {
+	public Off(Fan fan, boolean isOn) {
 		this.fan=fan;
-		if (!start) 
-			System.out.println( "turning off" );
+		if (!isOn) 
+			System.out.println( "turning off" );//from on to Off
+		
 	}
 
 	public void pullgreen() {
@@ -17,5 +18,9 @@ public class Off implements FanState{
 	public void pullred() {
 	      High newstate = new High(fan);
 	      fan.setState(newstate);
+	}
+
+	public void showState() {
+		System.out.println( " off" );
 	}
 }

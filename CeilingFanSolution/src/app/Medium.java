@@ -1,11 +1,11 @@
 package app;
 
 public class Medium implements FanState{
-	CeilingFan fan;
+	Fan fan;
 	
-	public Medium(CeilingFan fan) {
+	public Medium(Fan fan) {
 		this.fan=fan;
-		System.out.println( "medium speed" );
+		
 	}
 
 	public void pullgreen() {
@@ -16,5 +16,10 @@ public class Medium implements FanState{
 	public void pullred() {
 	      Low newstate = new Low(fan);
 	      fan.setState(newstate);
+	}
+
+	public void showState() {
+		System.out.println( "medium speed" );
+		
 	}
 }
