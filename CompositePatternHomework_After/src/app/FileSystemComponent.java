@@ -1,3 +1,4 @@
+package app;
 public abstract class FileSystemComponent {
 
 	protected String name;

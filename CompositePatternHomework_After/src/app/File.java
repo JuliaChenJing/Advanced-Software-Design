@@ -1,3 +1,4 @@
+package app;
 public class File extends FileSystemComponent {
 	private int sizeInBytes;
 

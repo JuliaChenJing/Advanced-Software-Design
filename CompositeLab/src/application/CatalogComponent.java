@@ -1,3 +1,4 @@
+package application;
 
 public abstract class CatalogComponent {
 	protected String title;

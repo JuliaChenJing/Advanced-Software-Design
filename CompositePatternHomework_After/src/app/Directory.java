@@ -1,3 +1,4 @@
+package app;
 
 public class Directory extends FileSystemComposite {
 	public Directory(String name) {

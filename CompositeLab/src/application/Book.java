@@ -1,3 +1,4 @@
+package application;
 
 public class Book extends CatalogComponent{
 	private String isbn;

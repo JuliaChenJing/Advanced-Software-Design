@@ -9,27 +9,25 @@ import bank.domain.Customer;
 import bank.domain.SavingsAccountInterestStrategy;
 import bank.domain.CheckingsAccountInterestStrategy;
 
-
 public class AccountService implements IAccountService {
 	private IAccountDAO accountDAO;
 
-	
-	public AccountService(){
-		accountDAO=new AccountDAO();
+	public AccountService() {
+		accountDAO = new AccountDAO();
 	}
 
 	public Account createAccount(String type, long accountNumber, String customerName) {
 		Account account = new Account(accountNumber);
-		
-		//set interest strategy
-		if (type.equals("checking")){		   
-		   account.setInterestStrategy(new CheckingsAccountInterestStrategy());
+
+		// set interest strategy
+		if (type.equals("checking")) {
+			account.setInterestStrategy(new CheckingsAccountInterestStrategy());
+		} else {
+			account.setInterestStrategy(new SavingsAccountInterestStrategy());
 		}
-		else {
-		   account.setInterestStrategy(new SavingsAccountInterestStrategy());
-		}
+
 		account.setType(type);
-		
+
 		Customer customer = new Customer(customerName);
 		account.setCustomer(customer);
 		accountDAO.saveAccount(account);
@@ -57,8 +55,6 @@ public class AccountService implements IAccountService {
 		accountDAO.updateAccount(account);
 	}
 
-
-
 	public void transferFunds(long fromAccountNumber, long toAccountNumber, double amount, String description) {
 		Account fromAccount = accountDAO.loadAccount(fromAccountNumber);
 		Account toAccount = accountDAO.loadAccount(toAccountNumber);
@@ -66,11 +62,11 @@ public class AccountService implements IAccountService {
 		accountDAO.updateAccount(fromAccount);
 		accountDAO.updateAccount(toAccount);
 	}
-	
-	//add interest to all users
-	public void addinterestToAllUsers(){
+
+	// add interest to all users
+	public void addinterestToAllUsers() {
 		Collection<Account> accounts = getAllAccounts();
-		for (Account account: accounts){
+		for (Account account : accounts) {
 			account.addInterest();
 		}
 	}
