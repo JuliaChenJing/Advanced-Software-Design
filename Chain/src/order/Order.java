@@ -4,12 +4,12 @@ public class Order {
 	private String ordernumber;
 	private Double totalAmount;
 	private Boolean international;
-	String name;
-	public Order(String ordernumber, Double totalAmount, Boolean international ,String name) {
+	Customer customer;
+	public Order(String ordernumber, Double totalAmount, Boolean international ,Customer customer) {
 		this.ordernumber = ordernumber;
 		this.totalAmount = totalAmount;
 		this.international = international;
-		this.name = name;
+		this.customer = customer;
 	}
 	public String getOrdernumber() {
 		return ordernumber;
@@ -29,11 +29,11 @@ public class Order {
 	public void setInternational(Boolean international) {
 		this.international = international;
 	}
-	public String getName() {
-		return name;
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 	
 	

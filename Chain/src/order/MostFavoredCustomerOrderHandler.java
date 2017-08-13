@@ -9,7 +9,7 @@ public class MostFavoredCustomerOrderHandler extends OrderHandler{
 	@Override
 	public void handleOrder(Order order) {
 		
-		if (name.contains(order.name)) {
+		if (name.contains(order.getCustomer().getName())) {
 			System.out.println("this order is handled by MostFavoredCustomerOrderHandler");
 		}
 		else{

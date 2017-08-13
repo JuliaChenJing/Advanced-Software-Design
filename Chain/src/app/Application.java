@@ -2,6 +2,7 @@ package app;
 
 import order.Order;
 import order.OrderReceiver;
+import order.Customer;
 
 public class Application {
 	
@@ -9,7 +10,8 @@ public class Application {
 		String orderNumber = "111";
 		Double totalAmount = 90.0;
 		Boolean isInternational = false;
-		String customerName = "Julia";
+		Customer customerName = new Customer("Julia");
+		
 		Order order = new Order(orderNumber, totalAmount, isInternational, customerName);
 		
 		OrderReceiver orderReceiver = new OrderReceiver();
