@@ -25,7 +25,8 @@ public class Application extends EnemyShip {
 				
 				doStuffEnemy(theEnemy);
 				
-			} else System.out.print("Please enter U, R, or B next time");
+			} else
+				System.out.print("Please enter U, R, or B next time");
 		
 		}
 		
