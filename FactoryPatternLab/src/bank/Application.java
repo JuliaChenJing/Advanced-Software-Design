@@ -3,6 +3,8 @@ package bank;
 import java.util.Collection;
 import java.util.Scanner;
 
+import bank.dao.AccountDAOFactory;
+import bank.dao.IAccountDAO;
 import bank.domain.Account;
 import bank.domain.AccountEntry;
 import bank.domain.Customer;
@@ -14,14 +16,18 @@ public class Application {
 	public static void main(String[] args) {
 
 		String input;
+		IAccountDAO accountDAO;
 		IAccountService accountService;
+		AccountDAOFactory factory = new AccountDAOFactory();
 		System.out.print("What type of AccountService? (P / T )");
 		Scanner userInput = new Scanner(System.in);
 		if (userInput.hasNextLine()) {
 			input = userInput.nextLine();
 
-			accountService = new AccountService(input);
-			if (accountService != null) {
+			accountDAO = factory.createAccountDAO(input);
+			if (accountDAO != null) {
+				accountService = new AccountService(accountDAO);
+
 				// create 2 accounts;
 				Account account1 = accountService.createAccount("checking", 1263862, "Julia Chen");
 				Account account2 = accountService.createAccount("saving", 4253892, "Bimal Parajuli");
@@ -57,6 +63,8 @@ public class Application {
 					System.out.printf("%30s%30s%20.2f\n\n", "", "Current Balance:", account.getBalance());
 				}
 			}
+			else
+				System.out.print("Please enter P/T next time");
 
 		}
 

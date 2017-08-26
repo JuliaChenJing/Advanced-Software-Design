@@ -12,11 +12,12 @@ import bank.domain.CheckingsAccountInterestStrategy;
 
 public class AccountService implements IAccountService {
 	private IAccountDAO accountDAO;
-	AccountDAOFactory factory = new AccountDAOFactory();
 
-	public AccountService(String type) {
+	public AccountService(IAccountDAO accountDAO) {
 
-		accountDAO=factory.createAccountDAO(type);
+		if (accountDAO != null)
+			this.accountDAO = accountDAO;
+	
 	}
 
 	public Account createAccount(String type, long accountNumber, String customerName) {
