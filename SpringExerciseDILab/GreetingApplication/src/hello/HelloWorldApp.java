@@ -10,9 +10,9 @@ public class HelloWorldApp {
 		
 		/*              bean name           package.class name
 		  <bean id="greetingService" class="hello.GreetingImpl">
-		                       instance variable name with setter
-                 <property name="greeting"><value>Hello Bimal</value></property>
-                                                   value
+		                  instance variable name with setter
+                 <property name="greeting"><value>Hello CS525</value></property>
+                                                    value
           </bean>
 		 */
 		

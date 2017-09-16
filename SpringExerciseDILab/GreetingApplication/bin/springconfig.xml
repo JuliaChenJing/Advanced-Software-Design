@@ -12,6 +12,6 @@
      http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
               
     <bean id="greetingService" class="hello.GreetingImpl">
-        <property name="greeting"><value>Hello Bimal</value></property>
+       <property name="greeting"><value>Hello CS525</value></property>
     </bean>
 </beans>

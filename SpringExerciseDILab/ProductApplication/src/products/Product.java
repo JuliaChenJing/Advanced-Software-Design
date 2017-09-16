@@ -29,6 +29,6 @@ public class Product {
 		this.productNumber = productNumber;
 	}
 	public String toString(){
-		return "productnumber="+productNumber+"  ,name="+name+" ,price="+price;
+		return "productnumber="+productNumber+", name="+name+", price="+price;
 	}
 }
