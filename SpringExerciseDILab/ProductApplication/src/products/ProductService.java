@@ -2,8 +2,12 @@ package products;
 
 import java.util.*;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class ProductService implements IProductService {
 	private Collection<Product> productList = new ArrayList<Product>();
+	private IInventoryService inventoryService;
 
 	public ProductService() {
 		productList.add(new Product(234, "LCD TV", 895.50));
@@ -17,6 +21,16 @@ public class ProductService implements IProductService {
 				return product;
 		}
 		return null;
+	}
+
+	public int getNumberInStock(int productNumber) {
+
+		return inventoryService.getNumberInStock(productNumber);
+	}
+
+	public void setInventoryService(IInventoryService inventoryService) {
+
+		this.inventoryService = inventoryService;
 	}
 
 }
