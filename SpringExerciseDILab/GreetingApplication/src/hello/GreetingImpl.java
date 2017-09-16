@@ -25,7 +25,7 @@ public class GreetingImpl implements IGreeting {
 	}
 
 	//setter
-	public void setGreeting(String greeting) {
-		this.greeting = greeting;
+	public void setGreeting(String greetingWords) {
+		this.greeting = greetingWords;
 	}
 }
