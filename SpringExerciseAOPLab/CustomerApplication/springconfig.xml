@@ -16,6 +16,8 @@
 		<property name="customerDAO" ref="customerDAO" />
 		<property name="emailSender" ref="emailSender" />
 	</bean>
+	
 	<bean id="customerDAO"  class="customers.CustomerDAO" />
+	
 	<bean id="emailSender"  class="customers.EmailSender" />
 </beans>
