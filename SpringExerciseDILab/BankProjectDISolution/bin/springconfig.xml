@@ -13,9 +13,9 @@
 	<bean id="accountService" class="bank.service.AccountService">
 		<property name="accountDAO" ref="testaccountDao" />
 	</bean>
-	
+
 	<bean id="accountDao" class="bank.dao.AccountDAO" />
-	
+
 	<bean id="testaccountDao" class="bank.dao.TestAccountDAO" />
 
 </beans>
