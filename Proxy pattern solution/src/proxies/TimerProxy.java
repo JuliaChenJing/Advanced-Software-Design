@@ -3,7 +3,6 @@ package proxies;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-
 public class TimerProxy implements InvocationHandler {
 	private Object o;
 
@@ -11,16 +10,15 @@ public class TimerProxy implements InvocationHandler {
 		this.o = o;
 	}
 
-	public Object invoke(Object proxy, Method m, Object[] args)
-			throws Throwable {
+	public Object invoke(Object proxy, Method m, Object[] args) throws Throwable {
 		// start timer
 		long start = System.currentTimeMillis();
-		//invoke method
+		// invoke method
 		Object result = m.invoke(o, args);
-		//calc time
-		long elapsedTimeMillis = System.currentTimeMillis()-start;
-		
-		System.out.println("Timer: it took " + elapsedTimeMillis+" milliseconds to invoke "+ m.getName());
+		// calc time
+		long elapsedTimeMillis = System.currentTimeMillis() - start;
+
+		System.out.println("Timer: it took " + elapsedTimeMillis + " milliseconds to invoke " + m.getName());
 		return result;
 	}
 }

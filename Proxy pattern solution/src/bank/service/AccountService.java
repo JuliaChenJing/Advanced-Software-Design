@@ -11,17 +11,17 @@ import bank.dao.IAccountDAO;
 import bank.domain.Account;
 import bank.domain.Customer;
 
-
 public class AccountService implements IAccountService {
 	private IAccountDAO accountDAO;
 
-	
-	public AccountService(){
-		IAccountDAO theaccountDAO=new AccountDAO();
+	public AccountService() {
+		IAccountDAO theaccountDAO = new AccountDAO();
 		ClassLoader cl = IAccountDAO.class.getClassLoader();
-		IAccountDAO theloggeraccountDAO = (IAccountDAO) Proxy.newProxyInstance(cl, new Class[] { IAccountDAO.class }, new LoggerProxy(theaccountDAO));
+		IAccountDAO theloggeraccountDAO = (IAccountDAO) Proxy.newProxyInstance(cl, new Class[] { IAccountDAO.class },
+				new LoggerProxy(theaccountDAO));
 
-		accountDAO = (IAccountDAO) Proxy.newProxyInstance(cl, new Class[] { IAccountDAO.class }, new TimerProxy(theloggeraccountDAO));
+		accountDAO = (IAccountDAO) Proxy.newProxyInstance(cl, new Class[] { IAccountDAO.class },
+				new TimerProxy(theloggeraccountDAO));
 
 	}
 
@@ -53,8 +53,6 @@ public class AccountService implements IAccountService {
 		account.withdraw(amount);
 		accountDAO.updateAccount(account);
 	}
-
-
 
 	public void transferFunds(long fromAccountNumber, long toAccountNumber, double amount, String description) {
 		Account fromAccount = accountDAO.loadAccount(fromAccountNumber);

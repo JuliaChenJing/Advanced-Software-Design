@@ -5,7 +5,6 @@ import java.lang.reflect.Method;
 
 import bank.dao.IAccountDAO;
 
-
 public class LoggerProxy implements InvocationHandler {
 	private IAccountDAO dao;
 
@@ -13,8 +12,7 @@ public class LoggerProxy implements InvocationHandler {
 		this.dao = dao;
 	}
 
-	public Object invoke(Object proxy, Method m, Object[] args)
-			throws Throwable {
+	public Object invoke(Object proxy, Method m, Object[] args) throws Throwable {
 		System.out.println("Logger: Invoking " + m.getName());
 		return m.invoke(dao, args);
 	}

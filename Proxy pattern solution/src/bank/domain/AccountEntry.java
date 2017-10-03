@@ -8,7 +8,7 @@ public class AccountEntry {
 	private String description;
 	private String fromAccountNumber;
 	private String fromPersonName;
-	
+
 	public AccountEntry() {
 	}
 
@@ -60,5 +60,5 @@ public class AccountEntry {
 	public void setFromPersonName(String fromPersonName) {
 		this.fromPersonName = fromPersonName;
 	}
-	
+
 }
